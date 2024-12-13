@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Button, Wallet, Network, SignMessage } from 'components';
-	import { account, modal, getBalance, disconnect } from 'lib/web3';
+	import { account, modal, getBalance, disconnect, formatEtherRounded } from 'lib/web3';
+	import { Button, Network } from 'components';
 	import { browser } from '$app/environment';
 
 	$: accountAddress = $account.address;
-	// let accountAddress = $state($account.address);
+
 	$: isMiniPay = false;
 
 	if (browser) {
@@ -24,6 +24,7 @@
 				// to comply with API Minipay injects one address but in the form of array
 				console.log(accounts[0]);
 				// @ts-ignore
+				// accountAddress = $account.address;
 				accountAddress = accounts[0];
 			}
 
@@ -37,22 +38,25 @@
 </script>
 
 <div class="md:md-0 w-full flex items-center justify-center">
-	<div class="w-[75%] my-5 flex items-center justify-center flex-col">
+	<div class="w-[85%] my-5 flex items-center justify-center flex-col">
 		<div class="h1">There you go... a canvas for your next Celo project!</div>
 		{#if $account.isConnected || isMiniPay}
-			<div class="pt-10 md:pt-0 mx-0 flex flex-col items-center justify-center">
-				<Button onclick={disconnect} variant="destructive">Disconnect</Button>
+			<div class="pt-10 md:pt-0 mx-0 flex flex-col items-center justify-center w-full">
 				<p>Your address:</p>
 				<p>{$account.address}</p>
+				{#await getBalance($account.address ?? accountAddress!)}
+					<p>Balance: ...</p>
+				{:then data}
+					<p class="text-md">
+						Balance: {formatEtherRounded(data.value)}
+					</p>
+				{/await}
 				Extra wallet metadata available when present
 				<Network />
-				<Wallet />
-				<!-- <Wallet />
-				<SignMessage /> -->
+				<Button onclick={disconnect} variant="destructive">Disconnect</Button>
 			</div>
 		{:else}
 			<Button variant="secondary" onclick={connectWallet}>Connect</Button>
-			<!-- <button on:click={}>Connect</button> -->
 		{/if}
 	</div>
 </div>

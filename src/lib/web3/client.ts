@@ -17,7 +17,7 @@ import { chains } from './chains';
 import { ethers } from 'ethers';
 
 const metadata = {
-	name: 'Celokit',
+	name: 'Celo Svelte',
 	description: 'Manage your crypto assets',
 	url: 'https://your-celo-app.com/',
 	icons: ['https://your-logo']
@@ -68,6 +68,7 @@ export function getActiveChain(num: number) {
 	return 'celo';
 }
 
+// wallet account details
 export const account = readable(getAccount(wagmiConfig), (set) =>
 	_watchAccount(wagmiConfig, { onChange: set })
 );
@@ -81,16 +82,16 @@ export const provider = readable<unknown | undefined>(undefined, (set) =>
 	})
 );
 
-export const getBalance = (
-	tokenAddress: `0x${string}` | string,
-	userAddress: `0x${string}` | string
+export const getBalance = async (
+	userAddress: `0x${string}` | string,
+	tokenAddress?: `0x${string}` | string
 ) => {
-	if (tokenAddress === '0x000') {
-		return _getBalance(wagmiConfig, {
+	if (tokenAddress) {
+		return await _getBalance(wagmiConfig, {
 			address: userAddress as `0x${string}`
 		});
 	}
-	return _getBalance(wagmiConfig, {
+	return await _getBalance(wagmiConfig, {
 		address: userAddress as `0x${string}`,
 		token: tokenAddress as `0x${string}`
 	});

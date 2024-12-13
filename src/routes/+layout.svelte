@@ -1,16 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import { Toaster } from 'svelte-sonner';
-	import { celoAlfajores, celo, sepolia } from 'viem/chains';
-	import { ethereumClient, publicClient, web3Modal } from '../store';
-	import { Web3Modal } from '@web3modal/html';
-	import { onMount } from 'svelte';
-
-	const projectId = import.meta.env.VITE_WEB3MODAL_PROJECT_ID;
-
-	onMount(async () => {
-		$web3Modal = new Web3Modal({ projectId, defaultChain: celo }, $ethereumClient);
-	});
 </script>
 
 <div class="m-0 p-0 no-scrollbar">
@@ -41,7 +31,6 @@
 			</a>
 			<w3m-core-button balance="hide" icon="hide" />
 			<w3m-network-switch />
-			<!-- <w3m-button class="" /> -->
 		</div>
 	</div>
 

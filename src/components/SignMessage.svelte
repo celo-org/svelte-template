@@ -1,7 +1,6 @@
-<!-- THIS FILE CAN BE REMOVED, IT SERVES ONLY TO DEMO BEST PRACTICES -->
+<!-- Example -->
 <script lang="ts">
 	import { signMessage } from '@wagmi/core';
-	// import { signMessage } from '@wagmi/core/dist/types/exports';
 	import { toast } from 'svelte-sonner';
 	import { wagmiConfig } from '$lib/web3';
 

@@ -2,7 +2,6 @@
 	import { cva, type VariantProps } from 'class-variance-authority';
 
 	export let onclick: VoidFunction;
-	// $: onclick();
 
 	export let isLoading: boolean = false;
 	export let variant: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' =
