@@ -3,9 +3,6 @@ export default {
 	darkMode: ['class'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		// backgroundImage: {
-		//   "hero": "url('/public/grento/sky.jpg')",
-		// },
 		container: {
 			center: true,
 			padding: '2rem',
@@ -54,9 +51,6 @@ export default {
 				md: `calc(var(--radius) - 2px)`,
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			// fontFamily: {
-			// 	sans: ['var(--font-sans)', ...fontFamily.sans]
-			// },
 			keyframes: {
 				'accordion-down': {
 					from: { height: 0 },
