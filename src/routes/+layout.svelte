@@ -3,8 +3,8 @@
 	import { Toaster } from 'svelte-sonner';
 </script>
 
-<div class="m-0 p-0 no-scrollbar">
-	<div class="flex items-center justify-between py-2 px-5 bg-primary w-scree">
+<div class="m-0 p-0 no-scrollbar min-h-screen">
+	<div class="flex items-center justify-between py-2 px-5 bg-primary w-screen bg-yellow-500">
 		<a href="/">
 			<div class="flex items-center">
 				<img src="/logo.svg" class="size-[50px] rounded-full mr-5" />

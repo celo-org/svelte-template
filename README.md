@@ -12,3 +12,4 @@ The popular Wagmi hooks were designed for React, and are built on `@wagmi/core`.
 Since, wagmi doesn't have a hooks specific to Svelte we use the core library.
 
 `lib/webs/client` wraps some of the `@wagmi/core` functions to a Svelte observable stream.
+
