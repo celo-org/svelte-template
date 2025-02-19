@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { account, modal, getBalance, disconnect, formatEtherRounded } from 'lib/web3';
-	import { Button, Network } from 'components';
+	import { Network } from 'components';
+	import { Button } from 'lib/components/ui/button';
 	import { browser } from '$app/environment';
 
 	$: accountAddress = $account.address;
