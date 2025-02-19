@@ -63,7 +63,27 @@ The component will be added to the `src/libs/components/ui` dir
 - [UI Components](https://www.shadcn-svelte.com/) - Svelte Shadcn  
 - [Wagmi](https://wagmi.sh/) for onchain transactions
 
+### Project Structure
 
+```
+├── src
+│   ├── components (custom components)
+│   │   ├── **/*.svelte
+│   ├── lib
+│   │   ├── components (shadcn components)
+│   │   ├── utils
+│   │   ├── web3 (Wagmi and web3 config files)
+│   └── routes
+│       ├── +page.svelte
+│       └── docs
+├── static (public files)
+├── node_modules
+├── README.md
+├── package.json
+├── other _config_files
+└── .gitignore
+
+```
 ## Web3 based operations
 
 This can be carried out using `@wagmi/core` functions. 
@@ -71,4 +91,5 @@ The popular Wagmi hooks were designed for React, and are built on `@wagmi/core`.
 Since, wagmi doesn't have a hooks specific to Svelte we use the core library.
 
 `lib/webs/client` wraps some of the `@wagmi/core` functions to a Svelte observable stream.
+
 
