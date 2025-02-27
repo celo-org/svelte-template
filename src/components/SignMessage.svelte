@@ -32,9 +32,9 @@
 	}
 </script>
 
-<div class="card py-2">
+<div class="bg-accent py-2 w-full">
 	<div class="space-y-4">
-		<h3 class="text-bold text-md">Sign Message</h3>
+		<h3 class="font-bold text-lg">Sign Message</h3>
 		<p class="text-left text-sm">
 			Result: <span class="text-sm"> {signature ?? ''} </span>
 		</p>

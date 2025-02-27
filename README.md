@@ -1,53 +1,43 @@
 # Sveltekit | Celo Composer
 
-This is a starter kit for Sveltekit. It's a perfect starter kit to get your project started on Celo blockchain. It uses TailwindCSS for styling and wagmi for onchain communication.
+This is a community-created and maintained starter kit.
 
 ## Setup & Installation
 
+1. Create a copy of `.env.example` and rename it to `.env`.
 
-### Set environment variables
-
-Create a copy of `.env.example` and rename it to `.env`.
-
-#### Add Wallet Connect ID
-
-Create a WalletConnect Cloud Project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/)
-
-Provide the WalletConnect Cloud Project ID in your `.env` file to use WalletConnect in your project. As shown in the `.env.example` file.
+2. Create a WalletConnect Cloud Project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/). Provide the WalletConnect Cloud Project ID in your `.env` file to use WalletConnect in your project. As shown in the `.env.example` file.
 
 ```typescript
-TS_PUBLIC_PROJECT_ID=YOUR_EXAMPLE_PROJECT_ID;
+VITE_PROJECT_ID=YOUR_EXAMPLE_PROJECT_ID;
 ```
 
-
-### Install dependencies
-
-Install all the required dependencies to run the dApp.
-
-Using **yarn**
+3. Install dependencies: Run  the command based on your package manager
 
 ```bash
-yarn
-```
+# using yarn
+yarn 
 
-or using **npm**
-
-```bash
+# using npm
 npm i
 ```
 
-> Sveltekit + Tailwind CSS Template does not have any dependency on hardhat.
 > This starterkit does not include connection of Hardhat/Truffle with Sveltekit. It's up to the user to integrate smart contract with Sveltekit. This gives user more flexibility over the dApp.
 
-- To start the dApp, run the following command.
+4. To start the dApp, run the following command.
 
 ```bash
+# using yarn
 yarn dev
+
+# using npm
+npm run dev
 ```
 
+5. Open in browser: `http://localhost:5173/`
 ## UI Components
 
-To add a component from the shadcn library run:
+To add a component from the [Shadcn library](https://www.shadcn-svelte.com/) run:
 
 ```bash
 npx shadcn-svelte@latest add <component-name>
@@ -56,14 +46,7 @@ npx shadcn-svelte@latest add <component-name>
 The component will be added to the `src/libs/components/ui` dir
 
 
-## Dependencies
-
-- [Sveltekit](https://svelte.dev/) app framework
-- [TailwindCSS](https://tailwindcss.com/) for styling
-- [UI Components](https://www.shadcn-svelte.com/) - Svelte Shadcn  
-- [Wagmi](https://wagmi.sh/) for onchain transactions
-
-### Project Structure
+## Project Structure
 
 ```
 ├── src
@@ -71,6 +54,10 @@ The component will be added to the `src/libs/components/ui` dir
 │   │   ├── **/*.svelte
 │   ├── lib
 │   │   ├── components (shadcn components)
+│   │   │   └── ui
+│   │   │       ├── button
+│   │   │       │     └── button.svelte
+│   │   │       └── input
 │   │   ├── utils
 │   │   ├── web3 (Wagmi and web3 config files)
 │   └── routes
