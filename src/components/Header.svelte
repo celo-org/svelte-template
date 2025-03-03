@@ -30,8 +30,8 @@
 
 	<div
 		class={cn(
-			'gap-x-5 items-center static  md:flex md:z-0 md:top-0  md:bg-none md:flex-row w-screen  md:space-y-0 space-y-3',
-			showNav ? 'flex fixed z-10 bg-primary left-0 top-[60px] flex-col' : 'hidden'
+			'gap-x-5 items-center static w-fit  md:flex md:z-0 md:top-0  md:bg-none md:flex-row   md:space-y-0 space-y-3',
+			showNav ? 'flex fixed z-10 bg-primary left-0 top-[60px] flex-col w-screen' : 'hidden'
 		)}
 	>
 		<a class="md:block hover:text-muted" href="/docs"> Docs </a>
@@ -67,6 +67,7 @@
 		>
 			Shadcn
 		</a>
+
 		<w3m-core-button balance="hide" icon="hide" />
 		<w3m-network-switch />
 	</div>

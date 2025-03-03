@@ -8,7 +8,7 @@ This is a community-created and maintained starter kit.
 
 2. Create a WalletConnect Cloud Project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/). Provide the WalletConnect Cloud Project ID in your `.env` file to use WalletConnect in your project. As shown in the `.env.example` file.
 
-```typescript
+```bash
 VITE_PROJECT_ID=YOUR_EXAMPLE_PROJECT_ID;
 ```
 

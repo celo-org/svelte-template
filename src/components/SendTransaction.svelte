@@ -1,4 +1,3 @@
-<!-- Example -->
 <script lang="ts">
 	import { sendTransaction } from '@wagmi/core';
 	import { toast } from 'svelte-sonner';
@@ -15,14 +14,18 @@
 			toast.error('Enter a valid wallet address');
 			return;
 		}
+
 		if (amount <= 0) {
 			toast.error('Amount must be greater than zero');
 			return;
 		}
+
 		try {
 			sendTransaction(wagmiConfig, {
 				value: toBigInt(amount),
 				to: address as `0x${string}`
+			}).then((res) => {
+				toast.success('Sent successfully');
 			});
 		} catch (error) {}
 	}

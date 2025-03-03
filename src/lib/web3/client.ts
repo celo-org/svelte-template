@@ -110,6 +110,7 @@ export function disconnect() {
 export function getChain(chainId: number) {
 	return chains.find(({ id }) => id === chainId);
 }
+
 export function sendTransaction(to: string, value: string) {
 	return _sendTransaction(wagmiConfig, {
 		to: to as `0x${string}`,

@@ -49,7 +49,8 @@
 <div class="md:md-0 w-full flex items-center justify-center">
 	<div class="w-[85%] my-5 flex items-center justify-center flex-col">
 		<div class=" ">There you go... a canvas for your next Celo project!</div>
-		{#if $account.isConnected || isMiniPay}
+		<!-- {#if $account.isConnected || isMiniPay} -->
+		{#if $account.isConnected}
 			<div class="pt-10 md:pt-0 mx-0 flex flex-col items-center justify-center w-full">
 				<p>Your address:</p>
 				<p class="text-wrap whitespace-nowrap">
