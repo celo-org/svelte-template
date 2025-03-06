@@ -67,7 +67,7 @@ The component will be added to the `src/libs/components/ui` dir
 ├── node_modules
 ├── README.md
 ├── package.json
-├── other _config_files
+├── other_config_files
 └── .gitignore
 
 ```
@@ -80,3 +80,4 @@ Since, wagmi doesn't have a hooks specific to Svelte we use the core library.
 `lib/webs/client` wraps some of the `@wagmi/core` functions to a Svelte observable stream.
 
 
+> When adding an environment variable, prepend `VITE_` to the name of your variable so that vite runtime can easily read it and add it to your app during startup.
