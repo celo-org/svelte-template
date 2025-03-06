@@ -1,5 +1,5 @@
 interface ImportMetaEnv {
-	readonly VITE_PROJECT_ID: string;
+	readonly VITE_WALLET_CONNECT_ID: string;
 	// more env variables...
 }
 
@@ -10,6 +10,6 @@ interface ImportMeta {
 interface Window {
 	ethereum: {
 		isMiniPay: boolean;
-		request: any
+		request: any;
 	};
 }

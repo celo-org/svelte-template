@@ -24,7 +24,8 @@ const metadata = {
 };
 
 const ssr = !browser;
-export const projectId = import.meta.env.WALLET_CONNECT_ID;
+export const projectId = import.meta.env.VITE_WALLET_CONNECT_ID;
+
 
 export const wagmiConfig = defaultWagmiConfig({
 	chains,
