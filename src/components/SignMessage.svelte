@@ -34,11 +34,13 @@
 </script>
 
 <div class="bg-accent py-2 w-full">
-	<div class="space-y-4">
+	<div class="space-y-4 flex flex-col w-full items-center justify-center">
 		<h3 class="font-bold text-lg">Sign Message</h3>
 		<p class="text-left text-sm">
 			Result: <span class="text-sm"> {signature ?? ''} </span>
 		</p>
-		<Button on:click={handleSign}>Sign message</Button>
+		<div class="flex w-full items-center justify-center">
+			<Button on:click={handleSign}>Sign message</Button>
+		</div>
 	</div>
 </div>
