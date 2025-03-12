@@ -17,14 +17,15 @@ import { chains } from './chains';
 import { ethers } from 'ethers';
 
 const metadata = {
-	name: 'Celo Svelte',
+	name: 'Celo Sveltekit',
 	description: 'Manage your crypto assets',
 	url: 'https://your-celo-app.com/',
 	icons: ['https://your-logo']
 };
 
 const ssr = !browser;
-export const projectId = import.meta.env.VITE_PROJECT_ID;
+export const projectId = import.meta.env.VITE_WALLET_CONNECT_ID;
+
 
 export const wagmiConfig = defaultWagmiConfig({
 	chains,
@@ -110,6 +111,7 @@ export function disconnect() {
 export function getChain(chainId: number) {
 	return chains.find(({ id }) => id === chainId);
 }
+
 export function sendTransaction(to: string, value: string) {
 	return _sendTransaction(wagmiConfig, {
 		to: to as `0x${string}`,

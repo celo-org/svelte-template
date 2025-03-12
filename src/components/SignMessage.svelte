@@ -1,43 +1,46 @@
-<!-- Example -->
 <script lang="ts">
 	import { signMessage } from '@wagmi/core';
 	import { toast } from 'svelte-sonner';
-	import { wagmiConfig } from '$lib/web3';
+	import { wagmiConfig, account } from '$lib/web3';
+	import { Button } from 'lib/components/ui/button';
 
-	let signature: string | undefined;
-	let label: string = 'Sign Message';
+	let signature: string | undefined = $state<string>('_');
+	let label: string = $state<string>('Sign Message');
 
 	async function handleSign() {
 		label = 'Signing...';
-		signature = '_';
 
-		try {
-			const _signature = await signMessage(wagmiConfig, {
-				message: 'WalletConnect message'
+		console.log('Before sign');
+		signMessage(wagmiConfig, {
+			message: 'Our message we wish to sign',
+			account: $account.address!
+		})
+			.then((res) => {
+				console.log('After sign: res');
+				//@ts-expect-error Wagmi Type bug
+				if (res !== 'null') {
+					signature = res;
+					toast.success('Message signed successfully');
+				} else {
+					toast.error('The signature was rejected');
+					signature = '_ personal_sign';
+				}
+			})
+			.catch((e) => {
+				console.log('Error happened');
+				toast.error(e.message);
 			});
-
-			//@ts-expect-error Wagmi Type bug
-			if (_signature !== 'null') {
-				signature = _signature;
-				toast.success('Message signed successfully');
-			} else {
-				toast.error('The signature was rejected');
-				signature = '_ personal_sign';
-			}
-		} catch (error) {
-			toast.error((error as Error).message);
-		} finally {
-			label = 'Sign Message';
-		}
 	}
 </script>
 
-<div class="card py-2">
-	<div class="space-y-4">
-		<h3 class="text-bold text-md">Sign Message</h3>
+<div class="bg-accent py-2 w-full">
+	<div class="space-y-4 flex flex-col w-full items-center justify-center">
+		<h3 class="font-bold text-lg">Sign Message</h3>
 		<p class="text-left text-sm">
 			Result: <span class="text-sm"> {signature ?? ''} </span>
 		</p>
-		<button class="btn variant-ghost-primary w-full" on:click={handleSign}>{label}</button>
+		<div class="flex w-full items-center justify-center">
+			<Button on:click={handleSign}>Sign message</Button>
+		</div>
 	</div>
 </div>
